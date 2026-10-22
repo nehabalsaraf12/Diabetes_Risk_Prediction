@@ -76,8 +76,8 @@ HTML_TEMPLATE = """
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Gender</label>
                         <select name="gender" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
-                            <option value="1">Male</option>
-                            <option value="0">Female</option>
+                            <option value="1" {% if form_data.get('gender') == 1.0 %}selected{% endif %}>Male</option>
+                            <option value="0" {% if form_data.get('gender') == 0.0 %}selected{% endif %}>Female</option>
                         </select>
                     </div>
                     <div>
@@ -128,16 +128,16 @@ HTML_TEMPLATE = """
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Family History</label>
                         <select name="family_history_diabetes" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
-                            <option value="1">Yes</option>
-                            <option value="0" selected>No</option>
+                            <option value="1" {% if form_data.get('family_history_diabetes') == 1.0 %}selected{% endif %}>Yes</option>
+                            <option value="0" {% if form_data.get('family_history_diabetes') == 0.0 or form_data.get('family_history_diabetes') is none %}selected{% endif %}>No</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Physical Activity</label>
                         <select name="physical_activity_level" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
-                            <option value="0">Low</option>
-                            <option value="1" selected>Moderate</option>
-                            <option value="2">High</option>
+                            <option value="0" {% if form_data.get('physical_activity_level') == 0.0 %}selected{% endif %}>Low</option>
+                            <option value="1" {% if form_data.get('physical_activity_level') == 1.0 or form_data.get('physical_activity_level') is none %}selected{% endif %}>Moderate</option>
+                            <option value="2" {% if form_data.get('physical_activity_level') == 2.0 %}selected{% endif %}>High</option>
                         </select>
                     </div>
                 </div>
@@ -219,6 +219,14 @@ HTML_TEMPLATE = """
         </main>
     </div>
 
+    <!-- JavaScript to stop mouse wheel from modifying number inputs -->
+    <script>
+        document.addEventListener('wheel', function(e) {
+            if (e.target.type === 'number') {
+                e.target.blur();
+            }
+        }, { passive: true });
+    </script>
 </body>
 </html>
 """
@@ -230,7 +238,6 @@ def index():
     
     if request.method == 'POST':
         try:
-            # Capture form fields matching the exact 17 features expected by the model
             form_data = {
                 'age': float(request.form.get('age', 45)),
                 'gender': float(request.form.get('gender', 1)),
@@ -251,7 +258,6 @@ def index():
                 'income_bracket': float(request.form.get('income_bracket', 1))
             }
 
-            # Create numpy feature array in exact correct order
             features = np.array([[
                 form_data['age'],
                 form_data['gender'],
@@ -276,7 +282,7 @@ def index():
                 pred = model.predict(features)
                 prediction = int(pred[0])
             else:
-                prediction = 0 # Fallback if model failed to load in local test
+                prediction = 0 
         except Exception as e:
             print(f"Prediction error: {e}")
 
