@@ -223,9 +223,9 @@ HTML_TEMPLATE = """
     <script>
         document.addEventListener('wheel', function(e) {
             if (e.target.type === 'number') {
-                e.target.blur();
+                e.preventDefault();
             }
-        }, { passive: true });
+        }, { passive: false });
     </script>
 </body>
 </html>
