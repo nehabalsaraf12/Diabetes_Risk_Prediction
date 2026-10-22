@@ -69,7 +69,7 @@ HTML_TEMPLATE = """
             <form action="/" method="POST" class="space-y-4">
                 <div>
                     <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Age</label>
-                    <input type="number" name="age" required value="{{ form_data.get('age', 45) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                    <input type="text" inputmode="decimal" name="age" required value="{{ form_data.get('age', 45) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
@@ -82,45 +82,45 @@ HTML_TEMPLATE = """
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">BMI</label>
-                        <input type="number" step="0.1" name="bmi" required value="{{ form_data.get('bmi', 25.5) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="bmi" required value="{{ form_data.get('bmi', 25.5) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Fast. Blood Sugar</label>
-                        <input type="number" step="0.1" name="fasting_blood_sugar" required value="{{ form_data.get('fasting_blood_sugar', 100) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="fasting_blood_sugar" required value="{{ form_data.get('fasting_blood_sugar', 100) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">HbA1c Level</label>
-                        <input type="number" step="0.1" name="hba1c_level" required value="{{ form_data.get('hba1c_level', 5.6) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="hba1c_level" required value="{{ form_data.get('hba1c_level', 5.6) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">BP Systolic</label>
-                        <input type="number" name="blood_pressure_systolic" required value="{{ form_data.get('blood_pressure_systolic', 120) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="blood_pressure_systolic" required value="{{ form_data.get('blood_pressure_systolic', 120) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">BP Diastolic</label>
-                        <input type="number" name="blood_pressure_diastolic" required value="{{ form_data.get('blood_pressure_diastolic', 80) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="blood_pressure_diastolic" required value="{{ form_data.get('blood_pressure_diastolic', 80) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Waist Circumference (cm)</label>
-                    <input type="number" step="0.1" name="waist_circumference_cm" required value="{{ form_data.get('waist_circumference_cm', 85) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                    <input type="text" inputmode="decimal" name="waist_circumference_cm" required value="{{ form_data.get('waist_circumference_cm', 85) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Sleep Hours</label>
-                        <input type="number" step="0.1" name="hours_sleep_per_night" required value="{{ form_data.get('hours_sleep_per_night', 7) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="hours_sleep_per_night" required value="{{ form_data.get('hours_sleep_per_night', 7) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">Stress Level (1-10)</label>
-                        <input type="number" name="stress_level" required value="{{ form_data.get('stress_level', 5) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
+                        <input type="text" inputmode="decimal" name="stress_level" required value="{{ form_data.get('stress_level', 5) }}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-100 focus:outline-none focus:border-teal-500">
                     </div>
                 </div>
 
@@ -218,15 +218,6 @@ HTML_TEMPLATE = """
             </div>
         </main>
     </div>
-
-    <!-- Explicitly bind preventDefault to ALL number inputs directly -->
-    <script>
-        document.querySelectorAll('input[type="number"]').forEach(function(input) {
-            input.addEventListener('wheel', function(e) {
-                e.preventDefault();
-            }, { passive: false });
-        });
-    </script>
 </body>
 </html>
 """
