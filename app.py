@@ -218,14 +218,7 @@ HTML_TEMPLATE = """
             </div>
         </main>
     </div>
-<script>
-    // Prevent mouse wheel from changing number input values
-    document.addEventListener('wheel', function(e) {
-        if (e.target.type === 'number') {
-            e.target.blur();
-        }
-    }, { passive: true });
-</script>
+
 </body>
 </html>
 """
