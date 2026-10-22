@@ -219,13 +219,13 @@ HTML_TEMPLATE = """
         </main>
     </div>
 
-    <!-- JavaScript to stop mouse wheel from modifying number inputs -->
+    <!-- Explicitly bind preventDefault to ALL number inputs directly -->
     <script>
-        document.addEventListener('wheel', function(e) {
-            if (e.target.type === 'number') {
+        document.querySelectorAll('input[type="number"]').forEach(function(input) {
+            input.addEventListener('wheel', function(e) {
                 e.preventDefault();
-            }
-        }, { passive: false });
+            }, { passive: false });
+        });
     </script>
 </body>
 </html>
